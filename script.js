@@ -1,8 +1,7 @@
 let canvas = document.querySelector("#container");
 let button = document.querySelector("button");
-let div;
-
-let size = 60 + "px";
+let answer = 16;
+let size = 960/answer + "px";
 
 function createBlock()  {
     let div = document.createElement("div");
@@ -16,6 +15,17 @@ function createBlock()  {
     canvas.append(div)
 }
 
-for(i = 0; i < 256; i++)    {
+function newCanvas()    {
+    for(i = 0; i < answer**2; i++)    {
     createBlock();
+    }
 }
+
+function changeSize()   {
+    answer = prompt("How big do you want your canvas? (1 - 100)");
+    size = 960/answer + "px";
+    canvas.innerHTML = ''
+    newCanvas();
+}
+
+newCanvas();
